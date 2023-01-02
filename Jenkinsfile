@@ -1,5 +1,6 @@
 node(''){
-withSonarQubeEnv(credentialsId: 'sonar') 
+	withSonarQubeEnv(credentialsId: 'sonar') {
+    // some block
 	{
 	stage ('checkout code'){
 		checkout scm
@@ -12,7 +13,6 @@ withSonarQubeEnv(credentialsId: 'sonar')
 	stage ('Test Cases Execution'){
 		sh "mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Pcoverage-per-test"
 	}
-	withSonarQubeEnv(credentialsId: 'sonar') {
-    // some block
+
 }
 
