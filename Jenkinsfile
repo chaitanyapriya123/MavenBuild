@@ -1,4 +1,4 @@
-node('') {
+node(''){
 	stage ('checkout code'){
 		checkout scm
 	}
@@ -10,9 +10,6 @@ node('') {
 	stage ('Test Cases Execution'){
 		sh "mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Pcoverage-per-test"
 	}
-
-	stage ('Sonar Analysis'){
-		sh 'mvn sonar:sonar -Dsonar.host.url=http://20.163.152.135:9000'
-	}
-
+	withSonarQubeEnv(credentialsId: 'sonar') {
+    // some block
 }
