@@ -1,8 +1,7 @@
 node(''){
 	withSonarQubeEnv(credentialsId: 'sonar') {
-    // some block
-	{
-	stage ('checkout code'){
+
+           stage ('checkout code'){
 		checkout scm
 	}
 	
@@ -15,5 +14,6 @@ node(''){
 	}
 
 }
-    }
 }
+   
+
