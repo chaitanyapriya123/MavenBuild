@@ -1,4 +1,6 @@
-node(''){
+node('')
+withSonarQubeEnv(credentialsId: 'sonar') {
+	{
 	stage ('checkout code'){
 		checkout scm
 	}
