@@ -1,5 +1,5 @@
-node('')
-withSonarQubeEnv(credentialsId: 'sonar') {
+node(''){
+withSonarQubeEnv(credentialsId: 'sonar') 
 	{
 	stage ('checkout code'){
 		checkout scm
@@ -15,3 +15,4 @@ withSonarQubeEnv(credentialsId: 'sonar') {
 	withSonarQubeEnv(credentialsId: 'sonar') {
     // some block
 }
+
